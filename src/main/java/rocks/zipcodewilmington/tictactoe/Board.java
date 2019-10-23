@@ -50,19 +50,16 @@ public class Board {
     public Boolean isInFavorOfX() {
         for (int i = 0; i <= 2; i++) {
             if (board[0][i] == board[1][i] && board[0][i] == board[2][i]) {
-                if (board[i][i] == 'O') { // pass in char and check
+                if (board[i][i] == 'X') { // pass in char and check
                     return true;
-//                }
                 }
 
             }
-            return false;
         }
         for (int i = 0; i <= 2; i++) {
             if (board[i][0] == board[i][1] && board[i][0] == board[i][2]) {
-                if (board[i][i] == 'O') { // pass in char and check
+                if (board[i][i] == 'X') { // pass in char and check
                     return true;
-//                }
                 }
             }
         }
@@ -74,22 +71,17 @@ public class Board {
             if (board[0][i] == board[1][i] && board[0][i] == board[2][i]) {
                 if (board[i][i] == 'O') { // pass in char and check
                     return true;
-//                }
                 }
-
             }
-            return false;
         }
         for (int i = 0; i <= 2; i++) {
             if (board[i][0] == board[i][1] && board[i][0] == board[i][2]) {
                 if (board[i][i] == 'O') { // pass in char and check
                     return true;
-//                }
                 }
             }
         }
         return false;
-
     }
 
     public Boolean isTie() {
@@ -105,6 +97,15 @@ public class Board {
                 }else if (board[i][i] == 'O'){
                     winner = "O";
                 }
+            }
+        }
+        for( int i = 0; i <=2; i++) {
+            if (board[0][i] ==  board[1][i] && board[0][i] == board[2][i]) {
+                if(board[i][i] == 'X') { // pass in char and check
+                    winner = "X";
+                }else if (board[i][i] == 'O'){
+                winner = "O";
+            }
             }
         }
         return winner;
