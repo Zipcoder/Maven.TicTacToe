@@ -1,26 +1,113 @@
 package rocks.zipcodewilmington.tictactoe;
 
+import com.sun.xml.internal.bind.v2.runtime.output.StAXExStreamWriterOutput;
+
 /**
  * @author leon on 6/22/18.
  */
+
 public class Board {
+
+    private Character[][] board;
+
     public Board(Character[][] matrix) {
+    this.board = matrix;
+
+
+    boolean hCheck = checkHorizontal();
+    boolean vCheck = checkVertical();
+        System.out.println(hCheck);
+        System.out.println(vCheck);
+
+    }
+//Should be able to simply this and stop repeating*******************
+    //***************************************************************
+    public boolean checkHorizontal(/*char checker*/)
+    {
+        for( int i = 0; i <=2; i++) {
+            if (board[i][0] ==  board[i][1] && board[i][0] == board[i][2]) {
+//                if(board[i][i] == checker){ // pass in char and check
+                    return true;
+//                }
+            }
+        }
+        return false;
     }
 
+    public boolean checkVertical()
+    {
+        for( int i = 0; i <=2; i++) {
+            if (board[0][i] ==  board[1][i] && board[0][i] == board[2][i]) {
+//                if(board[i][i] == checker) { // pass in char and check
+                    return true;
+//                }
+            }
+        }
+        return false;
+    }
+
+
     public Boolean isInFavorOfX() {
-        return null;
+        for (int i = 0; i <= 2; i++) {
+            if (board[0][i] == board[1][i] && board[0][i] == board[2][i]) {
+                if (board[i][i] == 'O') { // pass in char and check
+                    return true;
+//                }
+                }
+
+            }
+            return false;
+        }
+        for (int i = 0; i <= 2; i++) {
+            if (board[i][0] == board[i][1] && board[i][0] == board[i][2]) {
+                if (board[i][i] == 'O') { // pass in char and check
+                    return true;
+//                }
+                }
+            }
+        }
+        return false;
     }
 
     public Boolean isInFavorOfO() {
-        return null;
+        for (int i = 0; i <= 2; i++) {
+            if (board[0][i] == board[1][i] && board[0][i] == board[2][i]) {
+                if (board[i][i] == 'O') { // pass in char and check
+                    return true;
+//                }
+                }
+
+            }
+            return false;
+        }
+        for (int i = 0; i <= 2; i++) {
+            if (board[i][0] == board[i][1] && board[i][0] == board[i][2]) {
+                if (board[i][i] == 'O') { // pass in char and check
+                    return true;
+//                }
+                }
+            }
+        }
+        return false;
+
     }
 
     public Boolean isTie() {
-        return null;
+     return(!checkVertical() && !checkHorizontal());
     }
 
     public String getWinner() {
-        return null;
+        String winner = "";
+        for( int i = 0; i <=2; i++) {
+            if (board[i][0] ==  board[i][1] && board[i][0] == board[i][2]) {
+                if(board[i][i] == 'X'){
+                    winner = "X";
+                }else if (board[i][i] == 'O'){
+                    winner = "O";
+                }
+            }
+        }
+        return winner;
     }
 
 }
