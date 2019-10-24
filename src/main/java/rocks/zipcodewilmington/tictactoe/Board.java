@@ -18,31 +18,28 @@ public class Board {
     //***************************************************************
     public  boolean checkHorizontal(Character checker) {
         for (int i = 0; i <= 2; i++) {
-            if (board[i][0] == board[i][1] && board[i][0] == board[i][2]) {
-                return (board[i][0]==checker);
-              }
+            if (board[i][0] == checker && board[i][1] == checker && board[i][2] == checker ){
+                return true;
+                }
             }
         return false;
     }
 
     public boolean checkVertical(Character checker) {
             for (int i = 0; i <= 2; i++) {
-                Character current = board[2][i];
-                if (board[0][i] == board[1][i] && board[0][i] == board[2][i]) {
-                    System.out.println("currentChar = " + current);
-
-                    return (board[0][i] == checker);
-                }
+                if (board[0][i] == checker && board[1][i] == checker  && board[2][i] == checker) {
+                    return true;
+                    }
                 }
             return false;
         }
 
     public boolean checkDiag(Character checker){
-            if (board[0][0] ==  board[1][1] && board[0][0] == board[2][2]){
-                return (board[0][0] == checker);
+            if (board[0][0] == checker && board[1][1] == checker && board[2][2] == checker ){
+                return true;
             }
-            if(board[0][2] == board[1][1] && board[0][2] == board[2][0]) {
-                return (board[0][2] == checker);
+            if(board[0][2] == checker && board[1][1] == checker &&  board[2][0] == checker ) {
+                return true;
             }
         return false;
     }
