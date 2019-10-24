@@ -7,10 +7,11 @@ public class Board {
     private Character[][] board;
 
     public Board(Character[][] matrix) {
+        board = matrix;
     }
     public Boolean checkHorizontal(Character hT){
         for (int i = 0; i <= 2; i++){
-            if (board[i][0] == board[i][1] && board[i][1] == board[i][2]){
+            if (board[i][0] == hT && board[i][1] == hT && board[i][2] == hT){
                 return true;
             }
         }
@@ -18,9 +19,9 @@ public class Board {
     }
     public Boolean checkVertical(Character hT){
         for (int i = 0; i <= 2; i++){
-            if ((board[0][i] == hT && board[1][i] == hT && board[2][i] == hT) ||
-                    (board[2][0] == hT && board[1][1] == hT && board[0][2] == hT));
+            if (board[0][i] == hT && board[1][i] ==hT && board[2][i] == hT){;
             return true;
+            }
         }
         return false;
     }
@@ -34,22 +35,26 @@ public class Board {
     }
     public Boolean isInFavorOfX() {
 
-        if (checkHorizontal(('X')) || checkVertical('X') || checkVertical('X')){
+        if (checkHorizontal(('X')) || checkVertical('X') || checkDiagonal('X')){
             return true;
-        }return false;
+        }
+        return false;
     }
 
     public Boolean isInFavorOfO() {
 
-        if (checkHorizontal(('O')) || checkVertical('O') || checkVertical('O')){
-            return true;}
+        if (checkHorizontal(('O')) || checkVertical('O') || checkDiagonal('O')){
+            return true;
+        }
 
             return false;
     }
 
-    public Boolean isTie(){
-    if (!isInFavorOfO() || !isInFavorOfX());
-        return true;
+    public Boolean isTie() {
+        if (!isInFavorOfO() && !isInFavorOfX()) {
+            return true;
+        }
+        return false;
     }
 
     public String getWinner() {
