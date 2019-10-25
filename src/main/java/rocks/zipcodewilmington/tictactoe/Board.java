@@ -42,10 +42,14 @@ public class Board {
     // should return true if its a tie else return false
     public Boolean isTie()
     {
-        if (checkRows() == '\0' && checkColumns() == '\0' && checkDiagonals() == '\0')
+       //if (checkRows() == '\0' && checkColumns() == '\0' && checkDiagonals() == '\0')
+
+        if (!isInFavorOfX() && !isInFavorOfO())
             return true;
         else
             return false;
+
+
     }
 
     //if X is winner return "X" if O is winner return "O" .. if tie return ""
@@ -61,7 +65,8 @@ public class Board {
     //method to check if the values in array is equal or not
     public boolean checkEqual(Character[] charArray)
     {
-            if(charArray[0]== charArray[1] && charArray[1] == charArray[2]) //checking if all the values are equal (X or O)
+            if(charArray[0]== charArray[1] && charArray[1] == charArray[2] && charArray[0] != ' ') //checking if all the values are equal (X or O)
+
             {
                 return true;
             }
@@ -80,7 +85,8 @@ public class Board {
         for(int i = 0; i<=2;i++)
 
         {
-            if (checkEqual(boardSetup[i])) ;
+            //Boolean flag = checkEqual(boardSetup[i]);
+            if (checkEqual(boardSetup[i]))
             {
                 favor = boardSetup[i][0];
                 break;
@@ -99,7 +105,7 @@ public class Board {
 
         {
             Character[] charArray = {boardSetup[0][i], boardSetup[1][i], boardSetup[2][i]};
-            if (checkEqual(charArray)) ;
+            if (checkEqual(charArray))
             {
                 favor = boardSetup[0][i];
                 break;
@@ -114,8 +120,8 @@ public class Board {
         char favor = '\0';
 
             Character[] charArray1 = {boardSetup[0][0], boardSetup[1][1], boardSetup[2][2]}; //diagonal1
-            Character[] charArray2 = {boardSetup[0][2], boardSetup[1][1], boardSetup[2][1]}; //diagonal2
-            if (checkEqual(charArray1) || checkEqual(charArray2)) ;
+            Character[] charArray2 = {boardSetup[0][2], boardSetup[1][1], boardSetup[2][0]}; //diagonal2
+            if (checkEqual(charArray1) || checkEqual(charArray2))
             {
                 favor = boardSetup[1][1];
 
