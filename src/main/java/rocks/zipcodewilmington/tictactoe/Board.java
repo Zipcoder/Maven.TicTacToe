@@ -38,30 +38,30 @@ public class Board {
     public Boolean checkRows(char winner) {
         for (int row = 0; row <= 2; row++) {
             if (board[row][0] == winner && board[row][1] == winner & board[row][2] == winner) {
-                return victory = true;
+                return true;
             }
         }
-        return victory = false;
+        return false;
     }
 
-            /*for (int row = 0; row <= 2; row++) {
+            /*
             victory = ((board[row][0] == winner) && (board[row][1] == winner) && (board[row][2] == winner));*/
 
-    /*return victory;*/
+            /*return victory;*/
 
 
     public Boolean checkColumns(char winner) {
         for (int column = 0; column <= 2; column++) {
             if ((board[0][column] == winner && board[1][column] == winner) && (board[2][column] == winner)) {
-                return victory = true;
+                return  true;
             }
         }
-        return victory = false;
+        return false;
     }
 
 
     //victory = ((board[0][column] == winner) && (board[1][column] == winner) && (board[2][column] == winner))
-    /*return victory = false;*/
+    /*return victory;*/
 
 
     public Boolean checkDiagonals(char winner) {
