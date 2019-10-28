@@ -37,7 +37,7 @@ public class Board {
 
     public Boolean checkRows(char winner) {
         for (int row = 0; row <= 2; row++) {
-            if (board[row][0] == winner && board[row][1] == winner & board[row][2] == winner) {
+            if (board[row][0] == winner && board[row][1] == winner && board[row][2] == winner) {
                 return true;
             }
         }
@@ -45,7 +45,7 @@ public class Board {
     }
 
 
-            //victory = ((board[row][0] == winner) && (board[row][1] == winner) && (board[row][2] == winner));
+            //victory = (board[row][0] == winner && board[row][1] == winner && board[row][2] == winner);
 
             //return victory;
 
@@ -60,7 +60,7 @@ public class Board {
     }
 
 
-    //victory = ((board[0][column] == winner) && (board[1][column] == winner) && (board[2][column] == winner))
+    //victory = (board[0][column] == winner && board[1][column] == winner && board[2][column] == winner)
     //return victory;
 
 
