@@ -44,10 +44,10 @@ public class Board {
         return false;
     }
 
-            /*
-            victory = ((board[row][0] == winner) && (board[row][1] == winner) && (board[row][2] == winner));*/
 
-            /*return victory;*/
+            //victory = ((board[row][0] == winner) && (board[row][1] == winner) && (board[row][2] == winner));
+
+            //return victory;
 
 
     public Boolean checkColumns(char winner) {
@@ -61,7 +61,7 @@ public class Board {
 
 
     //victory = ((board[0][column] == winner) && (board[1][column] == winner) && (board[2][column] == winner))
-    /*return victory;*/
+    //return victory;
 
 
     public Boolean checkDiagonals(char winner) {
