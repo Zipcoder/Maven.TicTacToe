@@ -13,10 +13,13 @@ public class Board {
     }
 
     public Boolean isInFavorOfX() {
+
         int trackerO = 0;
         int trackerX = 0;
         Character[][] board = this.matrix;
-
+        if(isTie()){
+            return false;
+        }
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (board[i][j] == 'O') {
@@ -33,7 +36,9 @@ public class Board {
         int trackerO = 0;
         int trackerX = 0;
         Character[][] board = this.matrix;
-
+        if(isTie()){
+            return false;
+        }
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (board[i][j] == 'O') {
