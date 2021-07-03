@@ -47,9 +47,12 @@ public class Board {
     }
 
     public Boolean isTie() {
+        boolean isTie = false;
+        if(!getWinner().equals("X") && !getWinner().equals("O")) {
+            isTie = true;
+        }
 
-
-        return null;
+        return isTie;
     }
 
     public String getWinner() {
@@ -82,7 +85,7 @@ public class Board {
                 // diagonal
             }
         }
-        System.out.println(winner);
+        //System.out.println(winner);
         return winner;
     }
 
