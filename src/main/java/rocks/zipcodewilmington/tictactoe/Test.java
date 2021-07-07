@@ -1,14 +1,6 @@
 package rocks.zipcodewilmington.tictactoe;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
-/**
- * @author leon on 6/22/18.
- */
-public class Board {
-    public Board(Character[][] matrix) {
-        this.board = matrix;
-    }
+public class Test {
 
     private Character[][] board;
     private Boolean victory;
@@ -29,44 +21,27 @@ public class Board {
     }
 
     public String getWinner() {
-        if (!isInFavorOfX() && !isInFavorOfO()) {
+        if(!isInFavorOfX() && !isInFavorOfO())  {
             return "";
-        }
-        return isInFavorOfX() ? "X" : "O";
+        }   return isInFavorOfX() ? "X" : "O";
     }
 
     public Boolean checkRows(char winner) {
         for (int row = 0; row <= 2; row++) {
-            if (board[row][0] == winner && board[row][1] == winner && board[row][2] == winner) {
-                return true;
-            }
+            victory = (board[row][0] == winner && board[row][1] == winner) & (board[row][2] == winner);
         }
-        return false;
+        return victory;
     }
-
-
-            //victory = (board[row][0] == winner && board[row][1] == winner && board[row][2] == winner);
-
-            //return victory;
-
 
     public Boolean checkColumns(char winner) {
         for (int column = 0; column <= 2; column++) {
-            if ((board[0][column] == winner && board[1][column] == winner) && (board[2][column] == winner)) {
-                return  true;
-            }
+            victory = (board[0][column] == winner && board[1][column] == winner) && (board[2][column] == winner);
         }
-        return false;
+        return victory;
     }
-
-
-    //victory = (board[0][column] == winner && board[1][column] == winner && board[2][column] == winner)
-    //return victory;
-
 
     public Boolean checkDiagonals(char winner) {
         return victory = (board[0][0] == winner && board[1][1] == winner) && (board[2][2] == winner) ||
                 (board[2][0] == winner && board[1][1] == winner) && (board[0][2] == winner);
     }
 }
-
